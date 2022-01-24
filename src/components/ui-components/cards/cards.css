@@ -1,0 +1,17 @@
+.animated-body-cards {
+    animation: linear forwards;
+}
+
+.animated-body-cards:hover{
+    animation-name: hoverCard;
+	animation-duration: 90ms;
+}
+
+@keyframes hoverCard {
+	from {
+		width: 300px;
+	}
+	to {
+		width: 310px;
+	}
+}
