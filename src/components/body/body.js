@@ -15,6 +15,7 @@ import card1 from '../../assets/cards-img/1.jpg';
 import card2 from '../../assets/cards-img/2.jpg';
 import card3 from '../../assets/cards-img/3.jpg';
 import Info from '../../Pages/info-page/infoPage';
+import Team from '../../Pages/team-page/teamPage';
 
 SwiperCore.use([Autoplay]);
 
@@ -32,6 +33,9 @@ function Body() {
             <Info />
             <div id='roadMap'>
                 <RoadMap />
+            </div>
+            <div id='team'>
+                <Team/>
             </div>
             {/* <Swiper slidesPerView={3} spaceBetween={30} autoplay={{ delay: 500, disableOnInteraction: false, reverseDirection: true, waitForTransition: true }}>
                     <SwiperSlide>Slide 1</SwiperSlide>

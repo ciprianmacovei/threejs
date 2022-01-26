@@ -16,8 +16,12 @@ import {
     useColorModeValue,
     useDisclosure,
     useColorMode,
-    Image
+    Image,
+    chakra,
+    VisuallyHidden
 } from '@chakra-ui/react';
+
+import { FaDiscord, FaTwitter } from 'react-icons/fa';
 
 // import { Link as RouterLink } from 'react-router-dom';
 
@@ -107,7 +111,7 @@ export default function NavBar() {
                         color={useColorModeValue('gray.800', 'white')}>
                         Logo
                     </Text> */}
-                    <Image src={doodleLogo} className='logo' alt='Doodle Logo' maxW={isMobile ? '170px' : 'auto'}/>
+                    <Image src={doodleLogo} className='logo' alt='Doodle Logo' maxW={isMobile ? '170px' : 'auto'} />
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10} justify={'center'} align={'center'} width={'100%'}>
                         <DesktopNav />
                     </Flex>
@@ -141,6 +145,14 @@ export default function NavBar() {
                         }}>
                         Sign Up
                     </Button> */}
+                    <Stack direction={'row'} spacing={6} alignItems={'center'}>
+                        <SocialButton label={'Discord'} href={'#'}>
+                            <FaDiscord />
+                        </SocialButton>
+                        <SocialButton label={'Twitter'} href={'#'}>
+                            <FaTwitter />
+                        </SocialButton>
+                    </Stack>
                 </Stack>
             </Flex>
 
@@ -303,6 +315,33 @@ const MobileNavItem = ({ label, children, href }) => {
     );
 };
 
+const SocialButton = ({
+    children,
+    label,
+    href,
+}) => {
+    return (
+        <chakra.button
+            bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
+            rounded={'full'}
+            w={8}
+            h={8}
+            cursor={'pointer'}
+            as={'a'}
+            href={href}
+            display={'inline-flex'}
+            alignItems={'center'}
+            justifyContent={'center'}
+            transition={'background 0.3s ease'}
+            _hover={{
+                bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
+            }}>
+            <VisuallyHidden>{label}</VisuallyHidden>
+            {children}
+        </chakra.button>
+    );
+};
+
 const NAV_ITEMS = [
     {
         label: 'HOME',
@@ -343,6 +382,11 @@ const NAV_ITEMS = [
     {
         label: 'ROAD MAP',
         href: '#roadMap',
+        jumpToView: true
+    },
+    {
+        label: 'TEAM',
+        href: '#team',
         jumpToView: true
     },
     {

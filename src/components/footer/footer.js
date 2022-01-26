@@ -15,7 +15,7 @@ import {
   useColorModeValue,
   Flex
 } from '@chakra-ui/react';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaDiscord, FaTwitter } from 'react-icons/fa';
 import { BiMailSend } from 'react-icons/bi';
 
 import dopeLogo from '../../assets/Logo.png';
@@ -87,30 +87,27 @@ export default function Footer() {
             templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
             spacing={8}>
             <Stack spacing={6}> */}
-              {/* <Box> */}
-                {/* <Logo color={useColorModeValue('gray.700', 'white')} /> */}
+        {/* <Box> */}
+        {/* <Logo color={useColorModeValue('gray.700', 'white')} /> */}
 
-              {/* </Box> */}
-              {/* <Text fontSize={'sm'}>
+        {/* </Box> */}
+        {/* <Text fontSize={'sm'}>
                 © 2020 Chakra Templates. All rights reserved
               </Text> */}
-            <Flex flexDirection={'column'} justifyContent={'center'} alignItems={'center'} minHeight={'100px'} gap={'1rem'}>
-              <Image src={dopeLogo} maxWidth={'150px'}></Image>
-              <Stack direction={'row'} spacing={6}>
-                <SocialButton label={'Twitter'} href={'#'}>
-                  <FaTwitter />
-                </SocialButton>
-                <SocialButton label={'YouTube'} href={'#'}>
-                  <FaYoutube />
-                </SocialButton>
-                <SocialButton label={'Instagram'} href={'#'}>
-                  <FaInstagram />
-                </SocialButton>
-              </Stack>
-          </Flex>
+        <Flex flexDirection={'column'} justifyContent={'center'} alignItems={'center'} minHeight={'100px'} gap={'1rem'}>
+          <Image src={dopeLogo} maxWidth={'150px'}></Image>
+          <Stack direction={'row'} spacing={6}>
+            <SocialButton label={'Discord'} href={'#'}>
+              <FaDiscord />
+            </SocialButton>
+            <SocialButton label={'Twitter'} href={'#'}>
+              <FaTwitter />
+            </SocialButton>
+          </Stack>
+        </Flex>
 
-            {/* </Stack> */}
-            {/* <Stack align={'flex-start'}>
+        {/* </Stack> */}
+        {/* <Stack align={'flex-start'}>
               <ListHeader>Company</ListHeader>
               <Link href={'#'}>About us</Link>
               <Link href={'#'}>Blog</Link>
@@ -148,7 +145,7 @@ export default function Footer() {
                 />
               </Stack>
             </Stack> */}
-          {/* </SimpleGrid> */}
+        {/* </SimpleGrid> */}
         {/* </Container> */}
       </Box>
     </div>

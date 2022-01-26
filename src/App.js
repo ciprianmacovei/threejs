@@ -63,7 +63,9 @@ function App() {
     }
 
     if (clientY && clientX) {
-      state.camera.position.z = 4 * (wideScreen > 0 ? 2 : 16 / 4) * clientY + (wideScreen > 0 ? 14 : 6 - 10);
+      if (4 * (wideScreen > 0 ? 2 : 16 / 4) * clientY + (wideScreen > 0 ? 14 : 6 - 10) < wideScreen ? 17 : 5) {
+        state.camera.position.z = 4 * (wideScreen > 0 ? 2 : 16 / 4) * clientY + (wideScreen > 0 ? 14 : 6 - 10);
+      }
       state.camera.position.x = clientX;
       state.camera.position.y = clientY;
     } else {
@@ -87,23 +89,24 @@ function App() {
 
     if (state.scene.children[9]) {
       state.scene.children[9].position.z = (-37 - wideScreen) * Math.sin(seed1 * 0.04) + wideScreen;
-      state.scene.children[9].position.y = -scrollValue * 0.1;
+      state.scene.children[9].position.y = -scrollValue * 0.1 - 5;
     }
     if (state.scene.children[8]) {
       state.scene.children[8].position.z = (-46 - wideScreen) * Math.sin(seed2 * 0.04) + 10 + wideScreen;
-      state.scene.children[8].position.y = -scrollValue * 0.1;
+      state.scene.children[8].position.y = -scrollValue * 0.1 - 5;
     }
     if (state.scene.children[7]) {
       state.scene.children[7].position.z = (-49 - wideScreen) * Math.sin(seed3 * 0.04) + wideScreen;
-      state.scene.children[7].position.y = -scrollValue * 0.1;
+      state.scene.children[7].position.y = -scrollValue * 0.1 - 5;
     }
     if (state.scene.children[6]) {
       state.scene.children[6].position.z = (-39 - wideScreen) * Math.sin(seed4 * 0.05) + wideScreen;
-      state.scene.children[6].position.y = -scrollValue * 0.1;
+
+      state.scene.children[6].position.y = -scrollValue * 0.1 - 5;
     }
     if (state.scene.children[5]) {
       state.scene.children[5].position.z = (-39 - wideScreen) * Math.sin(seed5 * 0.05) + wideScreen;
-      state.scene.children[5].position.y = -scrollValue * 0.1;
+      state.scene.children[5].position.y = -scrollValue * 0.1 - 5;
     }
 
 

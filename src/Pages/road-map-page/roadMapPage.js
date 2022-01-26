@@ -21,7 +21,7 @@ import "./roadMapPage.css";
 
 export default function RoadMap() {
     return (
-        <div className="container-roadmap">
+        <div className="container-roadmap-page">
             <Text fontSize={'80px'} color={'orange.300'} fontWeight={'bold'} textAlign={'center'} marginTop={'10vh'}>Road Map</Text>
             <Flex
                 bgImage={background}
@@ -40,37 +40,41 @@ export default function RoadMap() {
                         bgRepeat={'no-repeat'}
                         bgPosition={'center'}
                         bgSize={'cover'}
-                        minWidth={'800px'}
+                        minWidth={'900px'}
                         minHeight={'200px'}
                         position={'relative'}
                         left={'60%'}
                         top={'10%'}
                     >
                         <Box position={'absolute'}
-                            top={'7%'}
+                            top={'10%'}
                             left={'15%'}
 
                         >
-                            <Flex
+                            {/* <Flex
                                 flexWrap={'wrap'}
                                 gap={3}
                                 alignItems={'center'}
                             >
-                                <Text color={'#205873'} fontSize={'35px'}>Launch + </Text>
+                                <Text color={'#205873'} fontSize={'35px'}>P </Text>
                                 <Text color={'#ed4367'} fontSize={'40px'}> 15 eth </Text>
                                 <Text color={'#205873'} fontSize={'35px'}>+</Text>
-                            </Flex>
+                            </Flex> */}
                             <Flex
-                                flexWrap={'wrap'}
-                                gap={3}
                                 alignItems={'center'}
                             >
-                                <Flex flexDirection={'column'} alignSelf={'flex-start'}>
-                                    <Text color={'#205873'} fontSize={'18px'} letterSpacing={2}>5555 unique 2D DopeBoyz NFTs </Text>
-                                    <Text color={'#205873'} fontSize={'18px'} letterSpacing={2}>launched on Open Sea: </Text>
+                                <Flex alignSelf={'flex-start'}>
+                                    <span style={{color: '#205873', fontSize: '24px'}}>
+                                        5555 unique 2D Boujee BoyZ NFTs
+                                        minted on Ethereum Blockchain
+                                    </span>
+                                    {/* <Text color={'#205873'} fontSize={'24px'} letterSpacing={2}>5555 unique 2D</Text>
+                                    <Text color={'#205873'} fontSize={'24px'} letterSpacing={2}>Misfits Club NFTs</Text>
+                                    <Text color={'#205873'} fontSize={'24px'} letterSpacing={2}>minted on </Text>
+                                    <Text color={'#205873'} fontSize={'24px'} letterSpacing={2}>Ethereum Blockchain</Text> */}
                                 </Flex>
-                                <Flex flexDirection={'column'} marginLeft={'2rem'}>
-                                    <Flex position={'relative'} bottom={'8rem'} left={'16rem'}>
+                                <Flex flexDirection={'column'}>
+                                    <Flex position={'relative'} right={'3rem'}>
                                         <Image src={cybertrack} maxWidth={'400px'} maxHeight={'200px'} />
                                     </Flex>
                                 </Flex>
@@ -85,82 +89,50 @@ export default function RoadMap() {
                         position={'relative'}
                         bottom={'5%'}
                     >
-                        <Box bgImage={smallCard1} boxSize={'sm'} bgSize={'contain'} bgRepeat={'no-repeat'} minHeight={'225px'} minWidth={'200px'}>
-                             <Flex maxWidth={'200px'} px={'5px'} marginTop={'7.2rem'} flexDirection={'column'}>
+                        <Box bgImage={smallCard1} boxSize={'sm'} bgSize={'contain'} bgRepeat={'no-repeat'} minHeight={'225px'} minWidth={'210px'}>
+                            <Flex maxWidth={'210px'} px={'10px'} marginTop={'8.5rem'} flexDirection={'column'} gap={0.5}>
                                 <Text fontSize={'13px'} textAlign={'center'} >
-                                     1x Tesla CyberTruck
+                                    1x Cyber Truck Giveaway
                                 </Text>
                                 <Text fontSize={'13px'} textAlign={'center'}>
-                                    Giveaway
+                                    (or 69.420 equivalent in ETH)
                                 </Text>
                                 <Text fontSize={'13px'} textAlign={'center'}>
-                                    (or $69,420
-                                </Text>
-                                <Text fontSize={'13px'} textAlign={'center'}>
-                                    equivalent in ETH)
-                                </Text>
-                                <Text fontSize={'13px'} textAlign={'center'}>
-                                    to one lucky Dope BoyZ minter!
+                                    To one lucky Boujee Boy minter.
                                 </Text>
                             </Flex>
                         </Box>
 
-                        <Box bgImage={smallCard2} boxSize={'sm'} bgSize={'contain'} bgRepeat={'no-repeat'} minHeight={'225px'} minWidth={'200px'}>
-                             <Flex maxWidth={'200px'} px={'5px'} marginTop={'7.5rem'} flexDirection={'column'}>
+                        <Box bgImage={smallCard2} boxSize={'sm'} bgSize={'contain'} bgRepeat={'no-repeat'} minHeight={'225px'} minWidth={'210px'}>
+                            <Flex maxWidth={'210px'} px={'10px'} marginTop={'8.5rem'} flexDirection={'column'} gap={0.5}>
                                 <Text fontSize={'13px'} textAlign={'center'} >
-                                    7.5 ETH
+                                    Doodle NFT raffled to one lucky holder
+                                </Text>
+
+                            </Flex>
+                        </Box>
+
+                        <Box bgImage={smallCard3} boxSize={'sm'} bgSize={'contain'} bgRepeat={'no-repeat'} minHeight={'225px'} minWidth={'210px'}>
+                            <Flex maxWidth={'210px'} px={'10px'} marginTop={'8.5rem'} flexDirection={'column'} gap={0.5}>
+                                <Text fontSize={'13px'} textAlign={'center'} >
+                                    Alien Frens NFT raffled to lucky holders
                                 </Text>
                                 <Text fontSize={'13px'} textAlign={'center'}>
-                                    (15 x 0.5)
-                                </Text>
-                                <Text fontSize={'13px'} textAlign={'center'}>
-                                    Giveaway
-                                </Text>
-                                <Text fontSize={'13px'} textAlign={'center'}>
-                                    raffled to
-                                </Text>
-                                <Text fontSize={'13px'} textAlign={'center'}>
-                                    lucky minters!
+                                    50 real life Boujee Boyz Posters raffled
                                 </Text>
                             </Flex>
                         </Box>
 
-                        <Box bgImage={smallCard3} boxSize={'sm'} bgSize={'contain'} bgRepeat={'no-repeat'} minHeight={'225px'} minWidth={'200px'}>
-                            <Flex maxWidth={'200px'} px={'5px'} marginTop={'7.5rem'} flexDirection={'column'}>
+                        <Box bgImage={smallCard4} boxSize={'sm'} bgSize={'contain'} bgRepeat={'no-repeat'} minHeight={'225px'} minWidth={'210px'}>
+                            <Flex maxWidth={'210px'} px={'10px'} marginTop={'8.5rem'} flexDirection={'column'} gap={0.5}>
                                 <Text fontSize={'13px'} textAlign={'center'} >
-                                    5.0 ETH
+                                    Alpha chat opens to all Holders
                                 </Text>
                                 <Text fontSize={'13px'} textAlign={'center'}>
-                                    (10 x 0.5)
+                                    Little Lemon Friends NFTs raffled to
                                 </Text>
                                 <Text fontSize={'13px'} textAlign={'center'}>
-                                    Giveaway
-                                </Text>
-                                <Text fontSize={'13px'} textAlign={'center'}>
-                                    raffled to
-                                </Text>
-                                <Text fontSize={'13px'} textAlign={'center'}>
-                                    lucky minters!
-                                </Text>
-                            </Flex>
-                        </Box>
-
-                        <Box bgImage={smallCard4} boxSize={'sm'} bgSize={'contain'} bgRepeat={'no-repeat'} minHeight={'225px'} minWidth={'200px'}>
-                            <Flex maxWidth={'200px'} px={'5px'} marginTop={'7.5rem'} flexDirection={'column'}>
-                                <Text fontSize={'13px'} textAlign={'center'} >
-                                    2.5 ETH
-                                </Text>
-                                <Text fontSize={'13px'} textAlign={'center'}>
-                                    (5 x 0.5)
-                                </Text>
-                                <Text fontSize={'13px'} textAlign={'center'}>
-                                    Giveaway
-                                </Text>
-                                <Text fontSize={'13px'} textAlign={'center'}>
-                                    to lucky
-                                </Text>
-                                <Text fontSize={'13px'} textAlign={'center'}>
-                                    Dope BoyZ minters!
+                                    Lucky holders
                                 </Text>
                             </Flex>
                         </Box>
@@ -180,7 +152,7 @@ export default function RoadMap() {
                         top={'20%'}
                     >
                         <Flex position={'absolute'} top={'32%'} left={'16%'} flexDirection={'column'}>
-                            <Text color={'#205873'} fontSize={'35px'} textAlign={'center'}>3D Dope BoyZ enter the Metaverse</Text>
+                            <Text color={'#205873'} fontSize={'32px'} textAlign={'center'}>Boujee BoyZ enters the Metaverse</Text>
                             <Flex>
                                 <Text fontSize={'38px'} color={'#61dde1'}>9999</Text>
                                 <Flex flexDirection={'column'} marginLeft={'1rem'}>
@@ -188,15 +160,15 @@ export default function RoadMap() {
                                         <Image src={arrowUp} maxWidth={'20px'} maxHeight={'17px'} marginTop={'5px'} marginRight={'7px'} />
                                         <Flex gap={3}>
                                             <Text fontSize={'20px'} color={'#61dde1'}>5555</Text>
-                                            <Text fontSize={'20px'} color={'#205873'}>whitelists for 2D holders / 1 free (only paying the gas fee) for every 3 2D Dope Boyz you hold</Text>
+                                            <Text fontSize={'20px'} color={'#205873'}>whitelists for 2D holders / 1 free (only paying the gas fee) for every three 2D Dope Boyz you hold</Text>
                                         </Flex>
                                     </Flex>
                                     <Flex>
                                         <Image src={arrowDown} maxWidth={'20px'} maxHeight={'17px'} marginBottom={'5px'} marginRight={'7px'} />
                                         <Flex alignItems={'center'} gap={3}>
                                             <Text fontSize={'20px'} color={'#61dde1'}>4444</Text>
-                                            <Text fontSize={'20px'} color={'#205873'}>sold +</Text>
-                                            <Text fontSize={'25px'} color={'#61dde1'}>20 ethereum giveaway</Text>
+                                            <Text fontSize={'20px'} color={'#205873'}>for public sale +</Text>
+                                            <Text fontSize={'25px'} color={'#61dde1'}>NFT giveaways & more</Text>
                                         </Flex>
                                     </Flex>
                                 </Flex>
@@ -210,17 +182,17 @@ export default function RoadMap() {
                         bgRepeat={'no-repeat'}
                         bgPosition={'center'}
                         bgSize={'cover'}
-                        minWidth={'800px'}
+                        minWidth={'850px'}
                         minHeight={'200px'}
                         position={'relative'}
                         left={'90%'}
                     >
-                        <Flex position={'relative'} top={'35%'} left={'20%'} flexDirection={'row'} gap={3}>
+                        <Flex position={'relative'} top={'30%'} left={'20%'} flexDirection={'row'} gap={3}>
                             <Flex width={'60%'}>
-                                <Text className="rotated-text-roadmap" fontSize={'20px'} color={'#205873'}>Dope BoyZ Gallery in the Metaverse and a physical one in Cluj-Napoca,<br></br> Romania</Text>
+                                <Text className="rotated-text-roadmap" fontSize={'20px'} color={'#205873'}>Boujee BoyZ Gallery in the Metaverse and a physical one in Cluj-Napoca, Romania</Text>
                             </Flex>
-                            <Flex width={'40%'} position={'absolute'} left={'16rem'} top={'4rem'}>
-                                <Text className="rotated-text-roadmap">Both galleries will be synchronized and you will be able to put your nft for sale or visit</Text>
+                            <Flex width={'100%'} position={'absolute'} top={'4rem'} maxWidth={'600px'}>
+                                <Text className="rotated-text-roadmap">We will purchase land in Wilder World or Decentraland and build our Art Gallery on it. Both galleries will be synchronized and you will be able put your NFT for sale or just display it as an art piece or visit the Gallery with your 3D Boujee Boy NFT. </Text>
                             </Flex>
 
                         </Flex>
