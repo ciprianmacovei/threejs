@@ -18,12 +18,12 @@ import {
     useColorMode,
     Image,
     chakra,
-    VisuallyHidden
+    VisuallyHidden,
+    PopoverArrow,
+    PopoverBody
 } from '@chakra-ui/react';
 
 import { FaDiscord, FaTwitter } from 'react-icons/fa';
-
-// import { Link as RouterLink } from 'react-router-dom';
 
 import {
     HamburgerIcon,
@@ -123,7 +123,7 @@ export default function NavBar() {
                     direction={'row'}
                     spacing={6}>
                     <Button onClick={toggleColor}>
-                        {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+                        {localStorage.getItem('chakra-ui-color-mode') === 'light' ? <MoonIcon /> : <SunIcon />}
                     </Button>
                     {/* <Button
                         as={'a'}
@@ -174,8 +174,35 @@ const DesktopNav = () => {
                 <Box key={navItem.label}>
                     <Popover trigger={'hover'} placement={'bottom-start'}>
                         <PopoverTrigger>
-                            <div disabled={!!navItem.target}>
-                                <Link
+                            {navItem.notReady ?
+                                <div>
+                                    <Link
+                                        // as={RouterLink}
+                                        target={!!navItem.target ? '_blank' : '_self'}
+                                        pointerEvents={!!navItem.target ? 'none' : 'auto'}
+                                        onClick={() => navItem.jumpToView ? document.querySelector(navItem.href).scrollIntoView() : document.scrollTop(0)}
+                                        p={2}
+                                        href={navItem.href ?? '#'}
+                                        // to={navItem.href ?? '#'}
+                                        fontSize={'sm'}
+                                        fontWeight={500}
+                                        color={linkColor}
+                                        _hover={{
+                                            textDecoration: 'none',
+                                            color: linkHoverColor,
+                                        }}>
+                                        {navItem.label}
+                                    </Link>
+                                    <PopoverContent>
+                                        <PopoverArrow />
+                                        <PopoverBody
+                                            alignItems={'center'}
+                                            justifyContent={'center'}>
+                                            This feature is under construction
+                                        </PopoverBody>
+                                    </PopoverContent>
+                                </div>
+                                : <Link
                                     // as={RouterLink}
                                     target={!!navItem.target ? '_blank' : '_self'}
                                     pointerEvents={!!navItem.target ? 'none' : 'auto'}
@@ -191,8 +218,7 @@ const DesktopNav = () => {
                                         color: linkHoverColor,
                                     }}>
                                     {navItem.label}
-                                </Link>
-                            </div>
+                                </Link>}
                         </PopoverTrigger>
 
                         {navItem.children && (
@@ -392,6 +418,7 @@ const NAV_ITEMS = [
     {
         label: 'VIRTUAL ART GALLERY',
         href: '/virtual-art-gallery',
-        target: true
+        target: true,
+        notReady: true
     }
 ];

@@ -10,39 +10,47 @@ export default function Team() {
 
     return (
         <div className='container-team-page'>
-            <Text color={'#7951B5'} fontSize={'80px'} fontWeight={'bold'} textAlign={'center'} paddingTop={'12rem'}>Team</Text>
-            <Flex
+            <Flex flexDirection={'column'}
                 bgImage={mainBackground}
                 bgSize={'contain'}
                 height={'100%'}
                 width={'100%'}
                 justifyContent={'center'}
                 alignItems={'center'}
-                marginTop={'10vh'}
-                color={'#7951B5'}
-                paddingY={'5vh'}
+                color={'#7951B5'}>
+                <Text color={'#7951B5'} fontSize={'80px'} fontWeight={'bold'} maxH={'70px'} >Team</Text>
+
+                <Flex
+                    height={'80%'}
+                    width={'100%'}
+                    justifyContent={'center'}
+                    alignItems={'center'}
+                    paddingBottom={'10vh'}
+                    color={'#7951B5'}
                 >
-                <Flex width={'20%'} flexDirection={'column'} justifyContent={'space-evenly'} alignItems={'center'} height={'100%'}>
-                    <Flex flexDirection={'column'} alignItems={'center'}>
-                        <Text fontSize={'40px'}>Fryzy</Text>
-                        <Text fontSize={'20px'}>artist</Text>
+
+                    <Flex width={'20%'} flexDirection={'column'} justifyContent={'space-evenly'} alignItems={'center'} height={'100%'}>
+                        <Flex flexDirection={'column'} alignItems={'flex-end'} width={'100%'} marginRight={'20px'}>
+                            <Text fontSize={'50px'}>Fryzy</Text>
+                            <Text fontSize={'30px'}>artist</Text>
+                        </Flex>
+                        <Flex flexDirection={'column'} alignItems={'flex-end'} width={'100%'} marginRight={'20px'}>
+                            <Text fontSize={'50px'}>Kiddo</Text>
+                            <Text fontSize={'30px'}>digital marketing</Text>
+                        </Flex>
                     </Flex>
-                    <Flex flexDirection={'column'} alignItems={'center'}>
-                        <Text fontSize={'40px'}>Blu</Text>
-                        <Text fontSize={'20px'}>advisor</Text>
+                    <Flex width={'25%'}>
+                        <Image src={teamBackgroundPic} />
                     </Flex>
-                </Flex>
-                <Flex width={'40%'}>
-                    <Image src={teamBackgroundPic} />
-                </Flex>
-                <Flex width={'20%'} flexDirection={'column'} justifyContent={'space-evenly'} alignItems={'center'} height={'100%'}>
-                    <Flex flexDirection={'column'} alignItems={'center'}>
-                        <Text fontSize={'40px'}>Kiddo</Text>
-                        <Text fontSize={'20px'}>digital marketing</Text>
-                    </Flex>
-                    <Flex flexDirection={'column'} alignItems={'center'}>
-                        <Text fontSize={'40px'}>Maco</Text>
-                        <Text fontSize={'20px'}>software engineer</Text>
+                    <Flex width={'20%'} flexDirection={'column'} justifyContent={'space-evenly'} alignItems={'center'} height={'100%'}>
+                        <Flex flexDirection={'column'} alignItems={'flex-start'} width={'100%'} marginLeft={'20px'}>
+                            <Text fontSize={'50px'}>Blu</Text>
+                            <Text fontSize={'30px'}>advisor</Text>
+                        </Flex>
+                        <Flex flexDirection={'column'} alignItems={'flex-start'} width={'100%'} marginLeft={'20px'}>
+                            <Text fontSize={'50px'}>Maco</Text>
+                            <Text fontSize={'30px'}>software engineer</Text>
+                        </Flex>
                     </Flex>
                 </Flex>
             </Flex>

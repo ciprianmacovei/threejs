@@ -1,9 +1,10 @@
 import React, { Fragment, useRef, Suspense, useEffect } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { TextureLoader } from 'three';
 
 import Snow from './canvas-components/snow/snow';
 import Background from './canvas-components/background/background';
+import Loader from './canvas-components/loading/loading';
 
 import mainBackground from './assets/background-layers/background.png';
 import dayBackground from './assets/background-layers/day-background.png';
@@ -25,25 +26,28 @@ function App() {
   textureLoader.crossOrigin = '';
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const { camera } = useThree();
   const mouse = useRef([0, 0]);
   let scrollValue = 0,
     clientX = 0,
-    clientY = 0;
-  let seed1 = 0,
+    clientY = 0,
+    seed1 = 0,
     seed2 = 0,
     seed3 = 0,
     seed4 = 0,
     seed5 = 0,
     seedLight = 0,
     darkMode = false,
-    backgroundObj,
-    wideScreen = 0;
+    backgroundObj;
 
-  window.screen.width > 1440 ? wideScreen = 20 : wideScreen = 0;
 
   useEffect(() => {
+    camera.position.z = 5;
+
     document.addEventListener('scroll', scrollEffect);
+
     document.addEventListener('mousemove', mouseEffect);
+
     document.body.addEventListener('touchmove', scrollEffect);
 
     setTheme.subscribe((res) => {
@@ -52,7 +56,6 @@ function App() {
   })
 
   useFrame((state) => {
-
     if (
       state.scene.children[2] &&
       state.scene.children[2].material &&
@@ -62,14 +65,13 @@ function App() {
       setBackgroundTheme();
     }
 
+    //ZOOM IN ZOOM OUT ANIMATION @@@@ TO DO @@@@
     if (clientY && clientX) {
-      if (4 * (wideScreen > 0 ? 2 : 16 / 4) * clientY + (wideScreen > 0 ? 14 : 6 - 10) < wideScreen ? 17 : 5) {
-        state.camera.position.z = 4 * (wideScreen > 0 ? 2 : 16 / 4) * clientY + (wideScreen > 0 ? 14 : 6 - 10);
+      if (4 * clientY + 4 < 7) {
+        state.camera.position.z = 4 * clientY + 4
       }
       state.camera.position.x = clientX;
       state.camera.position.y = clientY;
-    } else {
-      state.camera.position.z = wideScreen ? wideScreen : 5;
     }
 
     if (state.scene.children[3]) {
@@ -88,25 +90,24 @@ function App() {
     }
 
     if (state.scene.children[9]) {
-      state.scene.children[9].position.z = (-37 - wideScreen) * Math.sin(seed1 * 0.04) + wideScreen;
-      state.scene.children[9].position.y = -scrollValue * 0.1 - 5;
+      state.scene.children[9].position.z = -37 * Math.sin(seed1 * 0.04);
+      state.scene.children[9].position.y = -scrollValue * 0.1 - 2;
     }
     if (state.scene.children[8]) {
-      state.scene.children[8].position.z = (-46 - wideScreen) * Math.sin(seed2 * 0.04) + 10 + wideScreen;
-      state.scene.children[8].position.y = -scrollValue * 0.1 - 5;
+      state.scene.children[8].position.z = -46 * Math.sin(seed2 * 0.04) + 10;
+      state.scene.children[8].position.y = -scrollValue * 0.1 - 2;
     }
     if (state.scene.children[7]) {
-      state.scene.children[7].position.z = (-49 - wideScreen) * Math.sin(seed3 * 0.04) + wideScreen;
-      state.scene.children[7].position.y = -scrollValue * 0.1 - 5;
+      state.scene.children[7].position.z = -49 * Math.sin(seed3 * 0.04);
+      state.scene.children[7].position.y = -scrollValue * 0.1 - 2;
     }
     if (state.scene.children[6]) {
-      state.scene.children[6].position.z = (-39 - wideScreen) * Math.sin(seed4 * 0.05) + wideScreen;
-
-      state.scene.children[6].position.y = -scrollValue * 0.1 - 5;
+      state.scene.children[6].position.z = -39 * Math.sin(seed4 * 0.05);
+      state.scene.children[6].position.y = -scrollValue * 0.1 - 2;
     }
     if (state.scene.children[5]) {
-      state.scene.children[5].position.z = (-39 - wideScreen) * Math.sin(seed5 * 0.05) + wideScreen;
-      state.scene.children[5].position.y = -scrollValue * 0.1 - 5;
+      state.scene.children[5].position.z = -39 * Math.sin(seed5 * 0.05);
+      state.scene.children[5].position.y = -scrollValue * 0.1 - 2;
     }
 
 
@@ -133,27 +134,29 @@ function App() {
   }
 
   const setBackgroundTheme = (color) => {
-    const themeColor = color || localStorage.getItem('chakra-ui-color-mode') || 'dark';
-    if (themeColor) {
-      darkMode = themeColor === 'dark';
-      textureLoader.load(darkMode ? mainBackground : dayBackground,
-        function (txt) {
-          backgroundObj.map = txt;
-        })
+    if (backgroundObj) {
+      const themeColor = color || localStorage.getItem('chakra-ui-color-mode');
+      if (themeColor) {
+        darkMode = themeColor === 'dark';
+        textureLoader.load(darkMode ? mainBackground : dayBackground,
+          function (txt) {
+            backgroundObj.map = txt;
+          })
+      }
     }
   }
 
   return (
     <Fragment>
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loader />}>
         <Background position={[0, 0, -60]} scale={13.4} background={mainBackground} />
         <Background position={[-2, 0, -59]} scale={12.4} background={light} />
         <Background position={[0, 0, -58]} scale={12.4} background={leftBuilding} />
-        <Background position={[0, 0, -39]} scale={8.8} background={firstDoodleLayer} wideScreenScale={wideScreen > 0} />
-        <Background position={[0, 0, -39]} scale={8.8} background={secondDoodleLayer} wideScreenScale={wideScreen > 0} />
-        <Background position={[0, 0, -47]} scale={8.5} background={thirdDoodleLayer} wideScreenScale={wideScreen > 0} mainBackgroundMobile={true} />
-        <Background position={[0, 0, -36]} scale={8.3} background={forthDoodleLayer} wideScreenScale={wideScreen > 0} mainBackgroundMobile={true} />
-        <Background position={[0, 0, -37]} scale={8.5} background={fifthDoodleLayer} wideScreenScale={wideScreen > 0} mainBackgroundMobile={true} />
+        <Background position={[4, 0, -39]} scale={8.8} background={firstDoodleLayer} fixedDim={true} />
+        <Background position={[-4, 0, -39]} scale={8.8} background={secondDoodleLayer} fixedDim={true} />
+        <Background position={[0, 0, -47]} scale={8.5} background={thirdDoodleLayer} fixedDim={true} />
+        <Background position={[0, 0, -36]} scale={8.3} background={forthDoodleLayer} fixedDim={true} />
+        <Background position={[0, 0, -37]} scale={8.5} background={fifthDoodleLayer} fixedDim={true} />
         <Snow count={isMobile ? 700 : 2000} mouse={mouse} />
       </Suspense>
     </Fragment>
