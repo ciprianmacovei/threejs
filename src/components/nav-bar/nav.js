@@ -76,6 +76,11 @@ export default function NavBar() {
 
     useEffect(() => {
         document.addEventListener('scroll', scrollEffect)
+        if (localStorage.getItem('chakra-ui-color-mode') === null) {
+            toggleColorMode('dark');
+            // setTheme('dark');
+            // console.log('am intrat');
+        }
     })
 
     return (
@@ -195,10 +200,8 @@ const DesktopNav = () => {
                                     </Link>
                                     <PopoverContent>
                                         <PopoverArrow />
-                                        <PopoverBody
-                                            alignItems={'center'}
-                                            justifyContent={'center'}>
-                                            This feature is under construction
+                                        <PopoverBody>
+                                            <Text textAlign={'center'}>This feature is under construction</Text>
                                         </PopoverBody>
                                     </PopoverContent>
                                 </div>

@@ -56,7 +56,7 @@ export default function Snow({ count, mouse }) {
             <pointLight ref={light} distance={40} intensity={8} color="lightblue" />
             <instancedMesh ref={mesh} args={[null, null, count]}>
                 <dodecahedronBufferGeometry attach="geometry" args={[0.2, 0]} />
-                <meshPhongMaterial attach="material" color="#f0f0f0" />
+                <meshPhongMaterial attach="material" color="#f0f0f0" opacity={0.5} transparent/>
             </instancedMesh>
         </>
     )

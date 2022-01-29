@@ -19,12 +19,12 @@ import fifthDoodleLayer from './assets/background-layers/5.png';
 import { setTheme } from './Services/appService';
 
 import './App.css';
+import D3Boy from './canvas-components/boy/boy';
 
 function App() {
 
   const textureLoader = new TextureLoader();
   textureLoader.crossOrigin = '';
-
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const { camera } = useThree();
   const mouse = useRef([0, 0]);
@@ -37,10 +37,9 @@ function App() {
     seed4 = 0,
     seed5 = 0,
     seedLight = 0,
+    stopMoveEffect = false,
     darkMode = false,
     backgroundObj;
-
-
   useEffect(() => {
     camera.position.z = 5;
 
@@ -66,7 +65,7 @@ function App() {
     }
 
     //ZOOM IN ZOOM OUT ANIMATION @@@@ TO DO @@@@
-    if (clientY && clientX) {
+    if (clientY && clientX && !stopMoveEffect) {
       if (4 * clientY + 4 < 7) {
         state.camera.position.z = 4 * clientY + 4
       }
@@ -91,23 +90,23 @@ function App() {
 
     if (state.scene.children[9]) {
       state.scene.children[9].position.z = -37 * Math.sin(seed1 * 0.04);
-      state.scene.children[9].position.y = -scrollValue * 0.1 - 2;
+      state.scene.children[9].position.y = -scrollValue * 0.1 - 6;
     }
     if (state.scene.children[8]) {
       state.scene.children[8].position.z = -46 * Math.sin(seed2 * 0.04) + 10;
-      state.scene.children[8].position.y = -scrollValue * 0.1 - 2;
+      state.scene.children[8].position.y = -scrollValue * 0.1 - 6;
     }
     if (state.scene.children[7]) {
       state.scene.children[7].position.z = -49 * Math.sin(seed3 * 0.04);
-      state.scene.children[7].position.y = -scrollValue * 0.1 - 2;
+      state.scene.children[7].position.y = -scrollValue * 0.1 - 6;
     }
     if (state.scene.children[6]) {
       state.scene.children[6].position.z = -39 * Math.sin(seed4 * 0.05);
-      state.scene.children[6].position.y = -scrollValue * 0.1 - 2;
+      state.scene.children[6].position.y = -scrollValue * 0.1 - 6;
     }
     if (state.scene.children[5]) {
       state.scene.children[5].position.z = -39 * Math.sin(seed5 * 0.05);
-      state.scene.children[5].position.y = -scrollValue * 0.1 - 2;
+      state.scene.children[5].position.y = -scrollValue * 0.1 - 6;
     }
 
 
@@ -122,6 +121,9 @@ function App() {
     } else if (state.scene.children[8] && state.scene.children[8].position.z > -35) {
       seed2 += 1.0;
     }
+
+    show3dBoy(scrollValue, state);
+
   })
 
   const scrollEffect = () => {
@@ -146,6 +148,23 @@ function App() {
     }
   }
 
+  const show3dBoy = (scrollValue, state) => {
+    if (state.scene.children[10]) {
+      if (scrollValue > 3000) {
+        stopMoveEffect = true;
+        state.camera.position.x = 0;
+        state.camera.position.y = 0;
+        state.camera.position.z = 5;
+        state.scene.children[10].position.y = -1.5;
+        state.scene.children[10].rotation.y += 0.1;
+        state.scene.children[10].visible = true;
+      } else {
+        state.scene.children[10].visible = false;
+        stopMoveEffect = false;
+      }
+    }
+  }
+
   return (
     <Fragment>
       <Suspense fallback={<Loader />}>
@@ -153,10 +172,11 @@ function App() {
         <Background position={[-2, 0, -59]} scale={12.4} background={light} />
         <Background position={[0, 0, -58]} scale={12.4} background={leftBuilding} />
         <Background position={[4, 0, -39]} scale={8.8} background={firstDoodleLayer} fixedDim={true} />
-        <Background position={[-4, 0, -39]} scale={8.8} background={secondDoodleLayer} fixedDim={true} />
+        <Background position={[-3, 0, -39]} scale={8.8} background={secondDoodleLayer} fixedDim={true} />
         <Background position={[0, 0, -47]} scale={8.5} background={thirdDoodleLayer} fixedDim={true} />
         <Background position={[0, 0, -36]} scale={8.3} background={forthDoodleLayer} fixedDim={true} />
         <Background position={[0, 0, -37]} scale={8.5} background={fifthDoodleLayer} fixedDim={true} />
+        <D3Boy />
         <Snow count={isMobile ? 700 : 2000} mouse={mouse} />
       </Suspense>
     </Fragment>

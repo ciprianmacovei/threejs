@@ -3,8 +3,11 @@ import { Flex } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';
 
-import Footer from '../footer/footer';
+import Info from '../../Pages/info-page/infoPage';
 import RoadMap from '../../Pages/road-map-page/roadMapPage';
+import Team from '../../Pages/team-page/teamPage';
+import Model3d from '../../Pages/3dmode-page/3dmodel';
+import Footer from '../footer/footer';
 
 import Card from '../ui-components/cards/cards';
 
@@ -14,8 +17,6 @@ import 'swiper/css';
 import card1 from '../../assets/cards-img/1.jpg';
 import card2 from '../../assets/cards-img/2.jpg';
 import card3 from '../../assets/cards-img/3.jpg';
-import Info from '../../Pages/info-page/infoPage';
-import Team from '../../Pages/team-page/teamPage';
 
 SwiperCore.use([Autoplay]);
 
@@ -37,6 +38,7 @@ function Body() {
             <div id='team'>
                 <Team/>
             </div>
+            <Model3d/>
             {/* <Swiper slidesPerView={3} spaceBetween={30} autoplay={{ delay: 500, disableOnInteraction: false, reverseDirection: true, waitForTransition: true }}>
                     <SwiperSlide>Slide 1</SwiperSlide>
                     <SwiperSlide>Slide 2</SwiperSlide>
