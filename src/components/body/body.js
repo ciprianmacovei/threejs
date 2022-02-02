@@ -38,7 +38,7 @@ function Body() {
             <div id='team'>
                 <Team/>
             </div>
-            <Model3d/>
+            {/* <Model3d/> */}
             {/* <Swiper slidesPerView={3} spaceBetween={30} autoplay={{ delay: 500, disableOnInteraction: false, reverseDirection: true, waitForTransition: true }}>
                     <SwiperSlide>Slide 1</SwiperSlide>
                     <SwiperSlide>Slide 2</SwiperSlide>

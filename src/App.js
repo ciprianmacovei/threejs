@@ -4,7 +4,9 @@ import { TextureLoader } from 'three';
 
 import Snow from './canvas-components/snow/snow';
 import Background from './canvas-components/background/background';
+import Text from './canvas-components/text/text';
 import Loader from './canvas-components/loading/loading';
+import D3Boy from './canvas-components/boy/boy';
 
 import mainBackground from './assets/background-layers/background.png';
 import dayBackground from './assets/background-layers/day-background.png';
@@ -19,7 +21,6 @@ import fifthDoodleLayer from './assets/background-layers/5.png';
 import { setTheme } from './Services/appService';
 
 import './App.css';
-import D3Boy from './canvas-components/boy/boy';
 
 function App() {
 
@@ -122,7 +123,7 @@ function App() {
       seed2 += 1.0;
     }
 
-    show3dBoy(scrollValue, state);
+    // show3dBoy(scrollValue, state);
 
   })
 
@@ -150,7 +151,7 @@ function App() {
 
   const show3dBoy = (scrollValue, state) => {
     if (state.scene.children[10]) {
-      if (scrollValue > 3000) {
+      if (scrollValue > 3400) {
         stopMoveEffect = true;
         state.camera.position.x = 0;
         state.camera.position.y = 0;
@@ -176,7 +177,8 @@ function App() {
         <Background position={[0, 0, -47]} scale={8.5} background={thirdDoodleLayer} fixedDim={true} />
         <Background position={[0, 0, -36]} scale={8.3} background={forthDoodleLayer} fixedDim={true} />
         <Background position={[0, 0, -37]} scale={8.5} background={fifthDoodleLayer} fixedDim={true} />
-        <D3Boy />
+        {/* <D3Boy /> */}
+        {/* <Text /> */}
         <Snow count={isMobile ? 700 : 2000} mouse={mouse} />
       </Suspense>
     </Fragment>
