@@ -126,6 +126,7 @@ function App() {
     } else if (state.scene.children[8] && state.scene.children[8].position.z > -35) {
       seed2 += 1.0;
     }
+
     moveCard(scrollValue, state);
     // show3dBoy(scrollValue, state);
 

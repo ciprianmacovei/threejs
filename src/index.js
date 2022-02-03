@@ -10,7 +10,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import reportWebVitals from './reportWebVitals';
 
 import NavBar from './components/nav-bar/nav';
-import Home from './Pages/home-page/homePage';
+import Master from './Pages/master-page/masterPage';
 
 import './index.css';
 
@@ -20,7 +20,7 @@ ReactDOM.render(
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Master />} />
       </Routes>
     </BrowserRouter>
   </ChakraProvider>,
