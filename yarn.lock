@@ -4513,6 +4513,11 @@
   "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.0.10.tgz"
   "version" "3.0.10"
 
+"cubic-bezier-easing@^1.0.18":
+  "integrity" "sha512-wSvXBjo1Hq5IpMRHXAhhhMeQzuUJrkcPUDhykRbvwbyXnIKGY/ZeG58OP6QNITxXxCed8kgychK0Pn3F7aZa4A=="
+  "resolved" "https://registry.npmjs.org/cubic-bezier-easing/-/cubic-bezier-easing-1.0.18.tgz"
+  "version" "1.0.18"
+
 "damerau-levenshtein@^1.0.7":
   "integrity" "sha512-VvdQIPGdWP0SqFXghj79Wf/5LArmreyMsGLa6FG6iC4t3j7j5s71TrwWmT/4akbDQIqjfACkLZmjXhA7g2oUZw=="
   "resolved" "https://registry.npmjs.org/damerau-levenshtein/-/damerau-levenshtein-1.0.7.tgz"
@@ -4849,6 +4854,11 @@
   "version" "4.3.0"
   dependencies:
     "domelementtype" "^2.2.0"
+
+"dommatrix@^0.0.24":
+  "integrity" "sha512-PatEhAW5pIHr28MvFQGV5iiHNloqvecQZlxs7/8s/eulLqZI3uVqPkrO7YDuqsebovr/9mmcWDSWzVG4amEZgQ=="
+  "resolved" "https://registry.npmjs.org/dommatrix/-/dommatrix-0.0.24.tgz"
+  "version" "0.0.24"
 
 "domutils@^1.7.0":
   "integrity" "sha512-Lgd2XcJ/NjEw+7tFvfKxOzCYKZsdct5lczQ2ZaQY8Djz7pfAD3Gbp8ySJWtreII/vDlMVmxwa6pHmdxIYgttDg=="
@@ -7157,6 +7167,16 @@
   "resolved" "https://registry.npmjs.org/ktx-parse/-/ktx-parse-0.2.2.tgz"
   "version" "0.2.2"
 
+"kute.js@^2.2.2":
+  "integrity" "sha512-MkTkUR1xXFstIXRSa3K/oqT1IDBSTBWYputTmbucLj9Glx6AHysce+wXz9ubaubNKOGJ5YPdxFma+d6KSsC8Bg=="
+  "resolved" "https://registry.npmjs.org/kute.js/-/kute.js-2.2.2.tgz"
+  "version" "2.2.2"
+  dependencies:
+    "cubic-bezier-easing" "^1.0.18"
+    "minifill" "^0.0.16"
+    "shorter-js" "^0.2.6"
+    "svg-path-commander" "0.1.23"
+
 "language-subtag-registry@~0.3.2":
   "integrity" "sha512-L0IqwlIXjilBVVYKFT37X9Ih11Um5NEl9cbJIuU/SwP/zEEAbBPOnEeeuxVMf45ydWQRDQN3Nqc96OgbH1K+Pg=="
   "resolved" "https://registry.npmjs.org/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz"
@@ -7484,6 +7504,11 @@
   "version" "2.4.5"
   dependencies:
     "schema-utils" "^4.0.0"
+
+"minifill@^0.0.16":
+  "integrity" "sha512-ya61lgDqSRlaOVbD8neOkZMpMpmbfCbRewzJ/rfzc9nbisFthip3YcmBBL3fu+gneIKTrzcOG7mDysJh5ZDjqQ=="
+  "resolved" "https://registry.npmjs.org/minifill/-/minifill-0.0.16.tgz"
+  "version" "0.0.16"
 
 "minimalistic-assert@^1.0.0":
   "integrity" "sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A=="
@@ -9515,6 +9540,11 @@
   "resolved" "https://registry.npmjs.org/shell-quote/-/shell-quote-1.7.3.tgz"
   "version" "1.7.3"
 
+"shorter-js@^0.2.6":
+  "integrity" "sha512-gHfrA0/D2DBLB8ARfjX5X6q2AKiGsGpvbDKYKIpJx1B1bhhJAwgDq18bHtcpmp461eF0lsnQzptA9WGtV3c9ew=="
+  "resolved" "https://registry.npmjs.org/shorter-js/-/shorter-js-0.2.24.tgz"
+  "version" "0.2.24"
+
 "side-channel@^1.0.4":
   "integrity" "sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw=="
   "resolved" "https://registry.npmjs.org/side-channel/-/side-channel-1.0.4.tgz"
@@ -9940,6 +9970,13 @@
   "integrity" "sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ=="
   "resolved" "https://registry.npmjs.org/svg-parser/-/svg-parser-2.0.4.tgz"
   "version" "2.0.4"
+
+"svg-path-commander@0.1.23":
+  "integrity" "sha512-v1VSE4PwUrdwoMaiq7WnmGS1bcch57Rr8oaKwuKmNFhUouVgZxvfBYC+QUebweg0cLvQ3N1P57PRYMb8/ue4Lg=="
+  "resolved" "https://registry.npmjs.org/svg-path-commander/-/svg-path-commander-0.1.23.tgz"
+  "version" "0.1.23"
+  dependencies:
+    "dommatrix" "^0.0.24"
 
 "svgo@^1.2.2":
   "integrity" "sha512-yhy/sQYxR5BkC98CY7o31VGsg014AKLEPxdfhora76l36hD9Rdy5NZA/Ocn6yayNPgSamYdtX2rFJdcv07AYVw=="

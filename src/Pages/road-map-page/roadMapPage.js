@@ -49,29 +49,16 @@ export default function RoadMap() {
                         <Box position={'absolute'}
                             top={'10%'}
                             left={'15%'}
-
                         >
-                            {/* <Flex
-                                flexWrap={'wrap'}
-                                gap={3}
-                                alignItems={'center'}
-                            >
-                                <Text color={'#205873'} fontSize={'35px'}>P </Text>
-                                <Text color={'#ed4367'} fontSize={'40px'}> 15 eth </Text>
-                                <Text color={'#205873'} fontSize={'35px'}>+</Text>
-                            </Flex> */}
                             <Flex
                                 alignItems={'center'}
                             >
                                 <Flex alignSelf={'flex-start'}>
-                                    <span style={{color: '#205873', fontSize: '24px'}}>
+                                    <span style={{ color: '#205873', fontSize: '24px' }}>
                                         5555 unique 2D Boujee BoyZ NFTs
                                         minted on Ethereum Blockchain
                                     </span>
-                                    {/* <Text color={'#205873'} fontSize={'24px'} letterSpacing={2}>5555 unique 2D</Text>
-                                    <Text color={'#205873'} fontSize={'24px'} letterSpacing={2}>Misfits Club NFTs</Text>
-                                    <Text color={'#205873'} fontSize={'24px'} letterSpacing={2}>minted on </Text>
-                                    <Text color={'#205873'} fontSize={'24px'} letterSpacing={2}>Ethereum Blockchain</Text> */}
+
                                 </Flex>
                                 <Flex flexDirection={'column'}>
                                     <Flex position={'relative'} right={'3rem'}>
@@ -160,7 +147,7 @@ export default function RoadMap() {
                                         <Image src={arrowUp} maxWidth={'20px'} maxHeight={'17px'} marginTop={'5px'} marginRight={'7px'} />
                                         <Flex gap={3}>
                                             <Text fontSize={'20px'} color={'#61dde1'}>5555</Text>
-                                            <Text fontSize={'20px'} color={'#205873'}>whitelists for 2D holders / 1 free (only paying the gas fee) for every three 2D Dope Boyz you hold</Text>
+                                            <Text fontSize={'20px'} color={'#205873'}>whitelists for 2D holders / 1 free (only paying the gas fee) for every three 2D Boujee BoyZ you hold</Text>
                                         </Flex>
                                     </Flex>
                                     <Flex>

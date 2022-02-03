@@ -6,7 +6,7 @@ import Snow from './canvas-components/snow/snow';
 import Background from './canvas-components/background/background';
 import Text from './canvas-components/text/text';
 import Loader from './canvas-components/loading/loading';
-import D3Boy from './canvas-components/boy/boy';
+import D3Boy from './canvas-components/3Dboy/boy';
 
 import mainBackground from './assets/background-layers/background.png';
 import dayBackground from './assets/background-layers/day-background.png';
@@ -17,10 +17,13 @@ import secondDoodleLayer from './assets/background-layers/2.png';
 import thirdDoodleLayer from './assets/background-layers/3.png';
 import forthDoodleLayer from './assets/background-layers/4.png';
 import fifthDoodleLayer from './assets/background-layers/5.png';
+import cyberTruck from './assets/background-layers/cyberT.png';
 
 import { setTheme } from './Services/appService';
 
 import './App.css';
+import Car from './canvas-components/car/car';
+import Boys from './canvas-components/boys/boys';
 
 function App() {
 
@@ -40,9 +43,10 @@ function App() {
     seedLight = 0,
     stopMoveEffect = false,
     darkMode = false,
-    backgroundObj;
+    backgroundObj,
+    aspectRatio = window.innerWidth / window.innerHeight;
   useEffect(() => {
-    camera.position.z = 5;
+    camera.position.z = aspectRatio * 2.5;
 
     document.addEventListener('scroll', scrollEffect);
 
@@ -122,7 +126,7 @@ function App() {
     } else if (state.scene.children[8] && state.scene.children[8].position.z > -35) {
       seed2 += 1.0;
     }
-
+    moveCard(scrollValue, state);
     // show3dBoy(scrollValue, state);
 
   })
@@ -166,17 +170,24 @@ function App() {
     }
   }
 
+  const moveCard = (scrollValue, state) => {
+    if (state.scene.children[10]) {
+      state.scene.children[10].position.x = 65 * aspectRatio - (scrollValue * (aspectRatio - 1));
+    }
+  }
+
   return (
     <Fragment>
       <Suspense fallback={<Loader />}>
         <Background position={[0, 0, -60]} scale={13.4} background={mainBackground} />
         <Background position={[-2, 0, -59]} scale={12.4} background={light} />
         <Background position={[0, 0, -58]} scale={12.4} background={leftBuilding} />
-        <Background position={[4, 0, -39]} scale={8.8} background={firstDoodleLayer} fixedDim={true} />
-        <Background position={[-3, 0, -39]} scale={8.8} background={secondDoodleLayer} fixedDim={true} />
-        <Background position={[0, 0, -47]} scale={8.5} background={thirdDoodleLayer} fixedDim={true} />
-        <Background position={[0, 0, -36]} scale={8.3} background={forthDoodleLayer} fixedDim={true} />
-        <Background position={[0, 0, -37]} scale={8.5} background={fifthDoodleLayer} fixedDim={true} />
+        <Boys position={[4, 0, -39]} scale={8.8} background={firstDoodleLayer} />
+        <Boys position={[-3, 0, -39]} scale={8.8} background={secondDoodleLayer} />
+        <Boys position={[0, 0, -47]} scale={8.5} background={thirdDoodleLayer} />
+        <Boys position={[0, 0, -36]} scale={8.3} background={forthDoodleLayer} />
+        <Boys position={[0, 0, -37]} scale={8.5} background={fifthDoodleLayer} />
+        <Car position={[65 * aspectRatio, -4 * aspectRatio, -57]} scale={5.5} background={cyberTruck} />
         {/* <D3Boy /> */}
         {/* <Text /> */}
         <Snow count={isMobile ? 700 : 2000} mouse={mouse} />

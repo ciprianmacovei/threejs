@@ -1,13 +1,13 @@
 import * as THREE from 'three';
 import { useLoader } from '@react-three/fiber';
+import { useAspect } from '@react-three/drei';
 
-export default function Background({ position, scale, background, fixedDim }) {
+export default function Background({scale, position, background }) {
     const texture = useLoader(THREE.TextureLoader, background);
-    console.log(fixedDim ? 12.84 : window.screen.width / 97, fixedDim ? 6.35 : window.innerHeight / 97);
+    const scaleX = useAspect(window.innerWidth, window.innerHeight, scale)
     return (
-        <mesh position={position} scale={scale}>
-            <planeBufferGeometry attach="geometry"
-                args={[fixedDim ? 12.84 : window.screen.width / 97, fixedDim ? 6.35 : window.innerHeight / 97]} />
+        <mesh position={position} scale={scaleX}>
+            <planeBufferGeometry attach="geometry"/>
             <meshBasicMaterial attach="material" map={texture} transparent />
         </mesh>
     )
