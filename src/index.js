@@ -9,16 +9,13 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 import reportWebVitals from './reportWebVitals';
 
-import NavBar from './components/nav-bar/nav';
 import Master from './Pages/master-page/masterPage';
 
 import './index.css';
 
-
 ReactDOM.render(
   <ChakraProvider>
     <BrowserRouter>
-      <NavBar />
       <Routes>
         <Route path='/' element={<Master />} />
       </Routes>

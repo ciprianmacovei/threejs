@@ -93,37 +93,37 @@ function App() {
       }
     }
 
-    if (state.scene.children[9]) {
-      state.scene.children[9].position.z = -37 * Math.sin(seed1 * 0.04);
-      state.scene.children[9].position.y = -scrollValue * 0.1 - 6;
-    }
     if (state.scene.children[8]) {
-      state.scene.children[8].position.z = -46 * Math.sin(seed2 * 0.04) + 10;
+      state.scene.children[8].position.z = -37 * Math.sin(seed1 * 0.04);
       state.scene.children[8].position.y = -scrollValue * 0.1 - 6;
     }
     if (state.scene.children[7]) {
-      state.scene.children[7].position.z = -49 * Math.sin(seed3 * 0.04);
+      state.scene.children[7].position.z = -46 * Math.sin(seed2 * 0.04) + 10;
       state.scene.children[7].position.y = -scrollValue * 0.1 - 6;
     }
     if (state.scene.children[6]) {
-      state.scene.children[6].position.z = -39 * Math.sin(seed4 * 0.05);
+      state.scene.children[6].position.z = -49 * Math.sin(seed3 * 0.04);
       state.scene.children[6].position.y = -scrollValue * 0.1 - 6;
     }
     if (state.scene.children[5]) {
-      state.scene.children[5].position.z = -39 * Math.sin(seed5 * 0.05);
+      state.scene.children[5].position.z = -39 * Math.sin(seed4 * 0.05);
       state.scene.children[5].position.y = -scrollValue * 0.1 - 6;
+    }
+    if (state.scene.children[4]) {
+      state.scene.children[4].position.z = -39 * Math.sin(seed5 * 0.05);
+      state.scene.children[4].position.y = -scrollValue * 0.1 - 6;
     }
 
 
-    if (state.scene.children[6] && state.scene.children[6].position.z > -38) {
+    if (state.scene.children[5] && state.scene.children[5].position.z > -38) {
       seed4 += 1.0;
-    } else if (state.scene.children[5] && state.scene.children[5].position.z > -38) {
+    } else if (state.scene.children[4] && state.scene.children[4].position.z > -38) {
       seed5 += 1.0;
-    } else if (state.scene.children[9] && state.scene.children[9].position.z > -36) {
+    } else if (state.scene.children[8] && state.scene.children[8].position.z > -36) {
       seed1 += 1.0;
-    } else if (state.scene.children[7] && state.scene.children[7].position.z > -36) {
+    } else if (state.scene.children[6] && state.scene.children[6].position.z > -36) {
       seed3 += 1.0;
-    } else if (state.scene.children[8] && state.scene.children[8].position.z > -35) {
+    } else if (state.scene.children[7] && state.scene.children[7].position.z > -35) {
       seed2 += 1.0;
     }
 
@@ -172,8 +172,8 @@ function App() {
   }
 
   const moveCard = (scrollValue, state) => {
-    if (state.scene.children[10]) {
-      state.scene.children[10].position.x = 65 * aspectRatio - (scrollValue * (aspectRatio - 1));
+    if (state.scene.children[9]) {
+      state.scene.children[9].position.x = 65 * aspectRatio - (scrollValue * (aspectRatio - 1));
     }
   }
 
@@ -182,7 +182,6 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Background position={[0, 0, -60]} scale={13.4} background={mainBackground} />
         <Background position={[-2, 0, -59]} scale={12.4} background={light} />
-        <Background position={[0, 0, -58]} scale={12.4} background={leftBuilding} />
         <Boys position={[4, 0, -39]} scale={8.8} background={firstDoodleLayer} />
         <Boys position={[-3, 0, -39]} scale={8.8} background={secondDoodleLayer} />
         <Boys position={[0, 0, -47]} scale={8.5} background={thirdDoodleLayer} />

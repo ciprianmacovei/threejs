@@ -138,7 +138,7 @@ export default function RoadMap() {
                         left={'120%'}
                         top={'20%'}
                     >
-                        <Flex position={'absolute'} top={'32%'} left={'16%'} flexDirection={'column'}>
+                        <Flex position={'absolute'} top={'28%'} left={'16%'} flexDirection={'column'}>
                             <Text color={'#205873'} fontSize={'32px'} textAlign={'center'}>Boujee BoyZ enters the Metaverse</Text>
                             <Flex>
                                 <Text fontSize={'38px'} color={'#61dde1'}>9999</Text>
