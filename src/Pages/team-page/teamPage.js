@@ -17,7 +17,8 @@ export default function Team() {
                 width={'100%'}
                 justifyContent={'center'}
                 alignItems={'center'}
-                color={'#7951B5'}>
+                color={'#7951B5'}
+                gap={'1rem'}>
                 <Text color={'#7951B5'} fontSize={'80px'} fontWeight={'bold'} maxH={'70px'} >Team</Text>
 
                 <Flex

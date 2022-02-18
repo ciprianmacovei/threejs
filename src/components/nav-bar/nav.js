@@ -116,7 +116,7 @@ export default function NavBar() {
                         color={useColorModeValue('gray.800', 'white')}>
                         Logo
                     </Text> */}
-                    <Image src={doodleLogo} className='logo' alt='Doodle Logo' maxW={isMobile ? '170px' : 'auto'} />
+                    <Image src={doodleLogo} className='logo' alt='Doodle Logo' maxW={isMobile ? '130px' : 'auto'} />
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10} justify={'center'} align={'center'} width={'100%'}>
                         <DesktopNav />
                     </Flex>
@@ -126,6 +126,7 @@ export default function NavBar() {
                     flex={{ base: 1, md: 0 }}
                     justify={'flex-end'}
                     direction={'row'}
+                    ml={1}
                     spacing={6}>
                     <Button onClick={toggleColor}>
                         {localStorage.getItem('chakra-ui-color-mode') === 'light' ? <MoonIcon /> : <SunIcon />}
@@ -182,13 +183,11 @@ const DesktopNav = () => {
                             {navItem.notReady ?
                                 <div>
                                     <Link
-                                        // as={RouterLink}
                                         target={!!navItem.target ? '_blank' : '_self'}
                                         pointerEvents={!!navItem.target ? 'none' : 'auto'}
-                                        onClick={() => navItem.jumpToView ? document.querySelector(navItem.href).scrollIntoView() : document.scrollTop(0)}
+                                        onClick={() => navItem.jumpToView ? document.querySelector(navItem.href).scrollIntoView() : window.scrollTo(0,0)}
                                         p={2}
                                         href={navItem.href ?? '#'}
-                                        // to={navItem.href ?? '#'}
                                         fontSize={'sm'}
                                         fontWeight={500}
                                         color={linkColor}
@@ -206,13 +205,11 @@ const DesktopNav = () => {
                                     </PopoverContent>
                                 </div>
                                 : <Link
-                                    // as={RouterLink}
                                     target={!!navItem.target ? '_blank' : '_self'}
                                     pointerEvents={!!navItem.target ? 'none' : 'auto'}
-                                    onClick={() => navItem.jumpToView ? document.querySelector(navItem.href).scrollIntoView() : document.scrollTop(0)}
+                                    onClick={() => navItem.jumpToView ? document.querySelector(navItem.href).scrollIntoView() : window.scrollTo(0,0)}
                                     p={2}
                                     href={navItem.href ?? '#'}
-                                    // to={navItem.href ?? '#'}
                                     fontSize={'sm'}
                                     fontWeight={500}
                                     color={linkColor}

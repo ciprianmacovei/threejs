@@ -1,5 +1,7 @@
 import { Html, useProgress } from '@react-three/drei';
-import { Spinner, Text } from '@chakra-ui/react'
+import { Image, Spinner, Text } from '@chakra-ui/react'
+
+import loading from '../../assets/loading/loading.png';
 
 import './loading.css';
 
@@ -17,15 +19,9 @@ export default function Loader() {
     >
         {(total !== loaded && progress !== 100) ?
             <div>
-                <Text fontSize={'20px'} textAlign={'center'}>Loading ...</Text>
+                {/* <Text fontSize={'20px'} textAlign={'center'}>Loading ...</Text> */}
                 <div className='loading-container'>
-                    <Spinner
-                        thickness='20px'
-                        speed='0.65s'
-                        emptyColor='green'
-                        color='orange'
-                        size='xl'
-                    />
+                    <Image src={loading} maxWidth={'150px'} maxHeight={'150px'} className='rotating-img'></Image>
                 </div>
             </div>
             : null

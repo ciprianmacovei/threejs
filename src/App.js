@@ -11,7 +11,6 @@ import D3Boy from './canvas-components/3Dboy/boy';
 import mainBackground from './assets/background-layers/background.png';
 import dayBackground from './assets/background-layers/day-background.png';
 import light from './assets/background-layers/D letter in the sky.png';
-import leftBuilding from './assets/background-layers/layer cladire.png';
 import firstDoodleLayer from './assets/background-layers/1.png';
 import secondDoodleLayer from './assets/background-layers/2.png';
 import thirdDoodleLayer from './assets/background-layers/3.png';
@@ -181,7 +180,7 @@ function App() {
     <Fragment>
       <Suspense fallback={<Loader />}>
         <Background position={[0, 0, -60]} scale={13.4} background={mainBackground} />
-        <Background position={[-2, 0, -59]} scale={12.4} background={light} />
+        <Background position={[-1.8 * aspectRatio, 0, -59]} scale={12.4} background={light} />
         <Boys position={[4, 0, -39]} scale={8.8} background={firstDoodleLayer} />
         <Boys position={[-3, 0, -39]} scale={8.8} background={secondDoodleLayer} />
         <Boys position={[0, 0, -47]} scale={8.5} background={thirdDoodleLayer} />

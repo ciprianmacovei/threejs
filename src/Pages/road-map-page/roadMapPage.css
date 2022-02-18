@@ -1,10 +1,12 @@
 .container-roadmap-page {
-    height: 150vh;
+    height: 100%;
     width: 100vw;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .rotated-text-roadmap {
-    transform: rotate(3deg);
+    transform: rotate(3deg) translate(-10%, 0);
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Canvas } from '@react-three/fiber'
 
 import App from '../../App';
@@ -30,7 +30,7 @@ export default function Master() {
                 <Canvas>
                     <ambientLight />
                     <pointLight position={[10, 10, 10]} distance={100} intensity={4} />
-                    <fog attach="fog" color="#D3D3D3" near={59} far={70} />
+                    {/* <fog attach="fog" color="rgba(211,211,211,0.5)" near={59} far={75} /> */}
                     <App />
                 </Canvas>
             </div>

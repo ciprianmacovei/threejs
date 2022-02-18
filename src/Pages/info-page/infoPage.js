@@ -41,18 +41,17 @@ export default function Info() {
                             bgPosition={'center'}
                             bgRepeat={'no-repeat'}
                             padding={'30px'}>
-                            <Image src={sunGlassKid} maxWidth={'30vw'} maxHeight={'30vw'} width={'auto'} height={'auto'} />
+                            <Image src={sunGlassKid} maxWidth={'100%'} maxHeight={'100%'} width={'auto'} height={'auto'} />
                         </Flex>
                         <Flex
                             flexDirection={'column'}
                             height={'100%'}
                             width={isMobile ? '100%' : '50%'}
-                            padding={'15px'}
+                            margin={'30px'}
                             color={'white'}
-                            marginTop={'5rem'}
                             alignItems={'center'}>
                             {/* <Text>What is Dope BoyZ</Text> */}
-                            <Image src={whatDopeText} maxW={isMobile ? '300px' : 'auto'} />
+                            <Text textAlign={'center'} className='custom-font' color={'blue.500'} fontSize={'4vw'}>What is Boujee BoyZ</Text>
                             <Flex flexDirection={'column'} gap={'1.5rem'} fontSize={isMobile ? '15px' : '1.2vw'} maxW={isMobile ? '300px' : 'auto'} marginTop={'2rem'}>
                                 <Flex flexDirection={'column'} >
                                     Boujee BoyZ is a collection of 5555 unique art boyz, random
