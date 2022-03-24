@@ -1,9 +1,10 @@
-import React, { Fragment, useRef, Suspense, useEffect } from 'react';
+import React, { Fragment, useRef, Suspense, useEffect, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { TextureLoader } from 'three';
 
 import Snow from './canvas-components/snow/snow';
 import Background from './canvas-components/background/background';
+import Info from './canvas-components/info/info';
 import Text from './canvas-components/text/text';
 import Loader from './canvas-components/loading/loading';
 import D3Boy from './canvas-components/3Dboy/boy';
@@ -17,6 +18,7 @@ import thirdDoodleLayer from './assets/background-layers/3.png';
 import forthDoodleLayer from './assets/background-layers/4.png';
 import fifthDoodleLayer from './assets/background-layers/5.png';
 import cyberTruck from './assets/background-layers/cyberT.png';
+import schoolBackground from './assets/background-layers/backgroundClassRoom.jpg';
 
 import { setTheme } from './Services/appService';
 
@@ -26,6 +28,8 @@ import Boys from './canvas-components/boys/boys';
 
 function App() {
 
+  const [mainBackgroundVisibility, setMainBackgroundVisibility] = useState(true);
+  const [infoBackgroundVisibility, setInfoBackgroundVisibility] = useState(false);
   const textureLoader = new TextureLoader();
   textureLoader.crossOrigin = '';
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -44,6 +48,8 @@ function App() {
     darkMode = false,
     backgroundObj,
     aspectRatio = window.innerWidth / window.innerHeight;
+
+
   useEffect(() => {
     camera.position.z = aspectRatio * 2.5;
 
@@ -126,7 +132,8 @@ function App() {
       seed2 += 1.0;
     }
 
-    moveCard(scrollValue, state);
+    moveCar(scrollValue, state);
+    switchFromMainToInfo();
     // show3dBoy(scrollValue, state);
 
   })
@@ -170,16 +177,30 @@ function App() {
     }
   }
 
-  const moveCard = (scrollValue, state) => {
+  const moveCar = (scrollValue, state) => {
     if (state.scene.children[9]) {
       state.scene.children[9].position.x = 65 * aspectRatio - (scrollValue * (aspectRatio - 1));
+    }
+  }
+
+  const switchFromMainToInfo = (state) => {
+    const height = window.innerHeight;
+    if (scrollValue > 3 * height / 2) {
+      setInfoBackgroundVisibility(false);
+      setMainBackgroundVisibility(true);
+    } else if (scrollValue > height / 2) {
+      setMainBackgroundVisibility(false);
+      setInfoBackgroundVisibility(true);
+    } else {
+      setMainBackgroundVisibility(true);
+      setInfoBackgroundVisibility(false);
     }
   }
 
   return (
     <Fragment>
       <Suspense fallback={<Loader />}>
-        <Background position={[0, 0, -60]} scale={13.4} background={mainBackground} />
+        <Background position={[0, 0, -60]} scale={13.4} background={mainBackground} mashVisibility={mainBackgroundVisibility} />
         <Background position={[-1.8 * aspectRatio, 0, -59]} scale={12.4} background={light} />
         <Boys position={[4, 0, -39]} scale={8.8} background={firstDoodleLayer} />
         <Boys position={[-3, 0, -39]} scale={8.8} background={secondDoodleLayer} />
@@ -187,6 +208,7 @@ function App() {
         <Boys position={[0, 0, -36]} scale={8.3} background={forthDoodleLayer} />
         <Boys position={[0, 0, -37]} scale={8.5} background={fifthDoodleLayer} />
         <Car position={[65 * aspectRatio, -4 * aspectRatio, -57]} scale={5.5} background={cyberTruck} />
+        <Info position={[0, 0, -30]} scale={8} background={schoolBackground} mashVisibility={infoBackgroundVisibility} />
         {/* <D3Boy /> */}
         {/* <Text /> */}
         <Snow count={isMobile ? 700 : 2000} mouse={mouse} />

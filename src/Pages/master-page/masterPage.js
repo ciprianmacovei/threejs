@@ -41,7 +41,8 @@ export default function Master() {
                 <Card imgUrl={card3} />
                 </Flex> */}
                 {/* <Flex alignItems={'center'} justifyContent={'center'} px={'15px'} height={'50vh'} marginY={'100px'}> */}
-                <Info />
+                {/* <Info /> */}
+                <div style={{height: '100vh'}}></div>
                 <div id='roadMap'>
                     <RoadMap />
                 </div>
